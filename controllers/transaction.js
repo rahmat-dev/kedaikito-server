@@ -3,8 +3,8 @@ const Transaction = model.transaction
 
 exports.index = async (req, res) => {
     await Transaction.findAll().then(transaction => {
-        res.status(200).send({transaction})
-    }).catch(err => {throw err})
+        res.status(200).send({ transaction })
+    }).catch(err => { throw err })
 }
 
 exports.store = async (req, res) => {
@@ -13,7 +13,7 @@ exports.store = async (req, res) => {
             transaction,
             message: 'success'
         })
-    }).catch(err => {throw err})
+    }).catch(err => { throw err })
 }
 
 exports.update = async (req, res) => {
@@ -28,8 +28,8 @@ exports.update = async (req, res) => {
             transaction.update(req.body).then(data => {
                 res.status(200).send(data)
             }).catch(err => {
-                res.send(400).send({message: err})
+                res.send(400).send({ message: err })
             })
         }
-    }).catch(err => {throw err})
+    }).catch(err => { throw err })
 }
